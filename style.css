@@ -39,9 +39,7 @@ body{
   position: sticky;
   top: 0;
   z-index: 1000;
-   background-image: url('pics/newtexture.png')
-min-height: 60px}
-
+   background-image: url('pics/newtexture.png')}
 .container{
   padding:10px 10%;
 }
