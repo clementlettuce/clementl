@@ -72,7 +72,7 @@
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    status.textContent = 'Sending...';
+    status.textContent = 'sendingbeepboopbeep...';
 
     const formData = new FormData(form);
 
@@ -86,18 +86,18 @@
       });
 
       if (response.ok) {
-        status.textContent = 'Thanks for your submission!';
+        status.textContent = 'await my response soon!';
         form.reset();
       } else {
         const data = await response.json();
         if (data.errors) {
           status.textContent = data.errors.map(error => error.message).join(', ');
         } else {
-          status.textContent = 'Oops! There was a problem submitting your form.';
+          status.textContent = 'there was an error. (probably not network)';
         }
       }
     } catch (error) {
-      status.textContent = 'Oops! There was a problem submitting your form.';
+      status.textContent = 'there was an error. (probably network)';
     }
   });
 </script>
