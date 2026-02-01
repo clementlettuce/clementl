@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clement Lee</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="header">
+    <div class="navcontainer">
+      <nav>
+        <ul>
+          <li><img src="pics/logo.gif" class="logo"></li>
+          <li><a href="films.html">▸films ☺</a></li>
+          <li><a href="visdev.html">▸visdev⍟</a></li>
+          <li><a href="compositing.html">▸compositing ◈</a></li>
+          <li><a href="observationals.html">▸observationals ⚉</a></li>
+          <li><a href="bonus.html">▸special features ☈</a></li>
+          <li><a href="about.html">▸about ☜</a></li>
+          <li><a href="contact.html">▸contact ★</a></li>
+          <li>
+            <a href="https://x.com/lettucenotcabb"><img src="pics/uistuff/logos/twitter2.png" width="30px"></a>
+            <a href="https://instagram.com/clementlettuce"><img src="pics/uistuff/logos/insta2.png" width="30px"></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <p style="text-align: center;">Site is coming back, I am reworking it.</p>
+
+  <script>
+    window['CboxReady'] = function (Cbox) {
+      Cbox('button', '3-3549416-sPXnTI');
+    }
+  </script>
+  <script src="https://static.cbox.ws/embed/2.js" async></script>
+
+  <div id="contact">
+    <div class="container">
+      <div class="row">
+
+        <div class="contact-left">
+          <h1 class="sub-title">Talk to me (with a form)</h1>
+          <p>Or, use the Cbox at the bottom right hand.</p>
+          <p>clementlee417@gmail.com</p>
+          <a href="pics/mycv" class="btn btn2">Download CV</a>
+          <div class="social-icons">
+            <a href="https://x.com/lettucenotcabb"><img src="pics/uistuff/logos/twitter2.png" width="70px"></a>
+            <a href="https://instagram.com/clementlettuce"><img src="pics/uistuff/logos/insta2.png" width="70px"></a>
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <form id="contactForm">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" rows="6" placeholder="Your message..." required></textarea>
+            <button type="submit" class="btn btn2">SEND!!!</button>
+            <p id="my-form-status"></p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const status = document.getElementById("my-form-status");
+    const proxy = "https://corsproxy.io/?";
+    const formspreeUrl = "https://formspree.io/f/xeezqpda";
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const response = await fetch(proxy + encodeURIComponent(formspreeUrl), {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
+        if (response.ok) {
+          status.innerText = "Thanks for your submission!";
+          form.reset();
+        } else {
+          const result = await response.json();
+          status.innerText = result.errors ? result.errors.map(err => err.message).join(", ") : "Submission error";
+        }
+      } catch (err) {
+        status.innerText = "Submission failed! Try again later.";
+        console.error(err);
+      }
+    });
+  </script>
+
+</body>
+</html>
