@@ -38,7 +38,7 @@ body{
   position: sticky;
   top: 0;
   z-index: 1000;
-   background-image: url('pics/uistuff/newnewtexture.png')}
+   background-image: url('pics/uistuff/newnewnewtexture.png')}
 .container{
   padding:10px 10%;
 }
@@ -156,64 +156,4 @@ form .btn2{
   margin-top:20px;
 
 }
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 200px); 
-  gap: 10px; 
-  max-width: 900px; 
-  margin: 0 auto; 
-}
-.grid-item {
-  position: relative;
-  display: block; 
-  background-size: cover;
-  background-position: center;
-  border-radius: 4px;
-  overflow: hidden;
-  cursor: pointer;
-}
-.grid-item span {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 8px 12px;
-  border-radius: 3px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
 
-.grid-item:hover span {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.films {
-  background-image: url('pics/work/doggy.png');
-}
-
-.visual-dev {
-  background-image: url('pics/work/doggy.png');
-}
-
-.compositing {
-  background-image: url('pics/work/doggy.png');
-}
-
-.personal {
-  background-image: url('pics/work/doggy.png');
-}
-
-.observationals {
-  background-image: url('pics/work/doggy.png');
-}
-
-.client-work {
-  background-image: url('pics/work/doggy.png');
-}
