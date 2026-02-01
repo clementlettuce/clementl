@@ -130,7 +130,7 @@ a:hover { cursor: url('/pics/uistuff/cursor/smileygreen3.png'), pointer; }
   background-color: #FFFAE0;
 }
 .social-icons a{
-  padding:5px;
+  padding:10px;
     display: inline-block;
   transition: transform 0.5s;
 }
