@@ -32,7 +32,7 @@ body{
   font-family: 'Meiryo', sans-serif;
 }
 body{
-  background-color:#06402B;
+  background-color:#122109;
   color:#FFFAE0
 }
 #header{
@@ -119,7 +119,7 @@ a:hover { cursor: url('/pics/uistuff/cursor/smileygreen3.png'), pointer; }
   border:1px solid black;
   border-radius: 3px;
   text-decoration: none;
-  color:#06402B;
+  color:#122109;
   transition:background 0.5s;
 }
 .btn:hover{
@@ -147,7 +147,7 @@ form input, form textarea{
   background:#FFFAE0;
   padding:3px;
   margin:20px auto;
-  color:#06402B;
+  color:#122109;
   font-size:18px;
   border-radius:6px;
 }
