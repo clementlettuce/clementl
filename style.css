@@ -102,8 +102,8 @@ img {
   max-width: 100%;
   height: auto;
 }
-html { cursor: url('/pics/uistuff/cursor/darksmileygreen.png'), auto; }
-a:hover { cursor: url('/pics/uistuff/cursor/smileygreen3.png'), pointer; }
+html { cursor: url('./pics/uistuff/cursor/darksmileygreen.png'), auto; }
+a:hover { cursor: url('./pics/uistuff/cursor/smileygreen3.png'), pointer; }
 
 .contact-left{
   flex-basis:35%;
