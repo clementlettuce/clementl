@@ -79,7 +79,7 @@ nav ul li a{
 nav ul li a::after{
   content:'';
   width:0;
-  height:3px;
+  height:2px;
   background:#122109;
   position:absolute;
   left:0;
