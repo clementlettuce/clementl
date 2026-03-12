@@ -160,18 +160,15 @@ form .btn2{
   margin-top:20px;
 
 }
-/* Remove space below the video container */
+
 .container div {
     margin-bottom: 0;
 }
 
-/* Remove space above the paragraph */
 .container p {
     margin-top: 0;
-    padding-top: 5px; /* Add a tiny bit of breathing room if it's too tight */
-}
+    padding-top: 5px; }
 
-/* Fixes a tiny ghost gap at the bottom of iframes */
 iframe {
     display: block;
 }
