@@ -186,7 +186,8 @@ flex-shrink: 0}
 
 .video{
   position: relative;
-  width: 100%;
+justify-content:center;
+  width: 80%;
   aspect-ratio: 16 / 9;
 }
 
