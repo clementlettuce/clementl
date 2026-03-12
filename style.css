@@ -39,9 +39,7 @@ body{
   top: 0;
   z-index: 1000;
    background-image: url('pics/uistuff/texturev5.png')}
-.container{
-  padding:10px 10%;
-}
+
 .navcontainer{
   padding:3px 3%;
 }
