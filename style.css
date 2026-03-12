@@ -181,8 +181,8 @@ gap: 10px;
   justify-content: flex-start;}
 
 .container img {
-height: auto; 
-max-width: none;
+height: 100px%; 
+max-width: 100%;
 flex-shrink: 0}
 
 .video{
