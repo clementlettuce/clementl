@@ -157,14 +157,45 @@ form .btn2{
 
 }
 
-.filmbox p{
-margin:auto;
-  padding: 5px 0 0 0;
+
+
+.filmbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 20px 0;
 }
 
-.filmbox div{
-  margin: 0;
-  padding: 0;
+.video {
+  width: 80%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.video iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: none;
+  margin: 0 auto;
+}
+
+.video p {
+  margin: 10px 0 0 0;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 16px;
+  color: #FFFAE0;
+}
+
+@media (max-width: 768px) {
+  .video {
+    width: 95%;
+  }
+  .video p {
+    font-size: 14px;
+  }
 }
 iframe {
     display: block;
@@ -184,24 +215,7 @@ height: 100px%;
 max-width: 100%;
 flex-shrink: 0}
 
-.video{
-  position: relative;
-justify-content:center;
-  width: 80%;
-  aspect-ratio: 16 / 9;
-margin:0 auto 20px auto
-}
 
-.video iframe{
-justify-content:center;
-  width: 80%;
-  height: 80%;
-  border: none;
-}
-.video p{
-  margin: 6px 0 30px 0;
-  line-height: 1.4;
-}
 p{
 padding: 3px 0px 2px 0px;
 margin:0 10%;
