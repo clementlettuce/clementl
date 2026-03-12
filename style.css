@@ -97,10 +97,7 @@ nav ul li a:hover::after{
   font-weight:600;
   color:white;
 }
-img {
-  max-width: 100%;
-  height: auto;
-}
+
 html { cursor: url('./pics/uistuff/cursor/darksmileygreen.png'), auto; }
 a:hover { cursor: url('./pics/uistuff/cursor/smileygreen3.png'), pointer; }
 
