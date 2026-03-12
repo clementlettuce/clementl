@@ -170,4 +170,12 @@ form .btn2{
 iframe {
     display: block;
 }
+.container {
+  display: flex; 
+  justify-content: center;   
+gap: 10px; }
+
+.container img {
+  width: 300px;   
+height: auto; }
 
