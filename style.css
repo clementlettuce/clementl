@@ -166,10 +166,10 @@ form .btn2{
 }
 
 .film-container{
-    width:100%;
     display:grid;
     grid-template-columns:50% 50%;
     gap:20px;
+    align-items:stretch;
 }
 
 
@@ -185,15 +185,16 @@ form .btn2{
 }
 
 
+
 .film-stills{
     display:grid;
-    grid-template-rows:repeat(3,1fr);
+    grid-template-rows:repeat(3, 1fr);
     gap:10px;
+    height:100%;
 }
 
 .still{
     width:100%;
-    aspect-ratio:9/16;
     overflow:hidden;
 }
 
@@ -206,4 +207,3 @@ form .btn2{
 .film-description{
     margin-top:15px;
 }
-
