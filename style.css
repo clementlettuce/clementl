@@ -45,14 +45,15 @@ body{
 }
 
 nav ul {
-   display: flex;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 16px;
 }
 
 .logo{
-width:12vw;
- max-width: 180px;
+  width:120px;
+  max-width:100%;
   height: auto;
     vertical-align: middle;
 }
@@ -159,14 +160,16 @@ form .btn2{
 
 }
 
-.filmbox div {
-    margin-bottom: 0;
+.filmbox p{
+  margin: 0;
+  padding: 5px 0 0 0;
 }
 
-.filmbox p {
-    margin-top: 0;
-    padding-top: 5px; }
-
+.filmbox div{
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
 iframe {
     display: block;
 }
@@ -178,4 +181,14 @@ gap: 10px; }
 .container img {
   width: 300px;   
 height: auto; }
+.video{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
 
+.video iframe{
+  width: 100%;
+  height: 100%;
+  border: none;
+}
