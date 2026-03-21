@@ -177,7 +177,7 @@ form .btn2{
 }
 
 .video iframe {
-  width: 100%;
+  width: 90%;
   aspect-ratio: 16 / 9;
   display: block;
   border: none;
