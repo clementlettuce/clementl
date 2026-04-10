@@ -44,7 +44,7 @@ body{
   padding:3px 3%;
 }
 
-nav ul {
+.navcontainer nav ul {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
