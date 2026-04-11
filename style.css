@@ -208,12 +208,9 @@ iframe {
 .container {
   margin-left: 10%;
   margin-right: 10%;
-  display: flex; 
-  justify-content: center;   
+  
 gap: 10px; 
-  overflow-x: auto;  
- flex-wrap: nowrap; 
-  justify-content: flex-start;}
+ }
 
 .container img {
 max-width: 100%;
