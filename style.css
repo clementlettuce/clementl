@@ -138,6 +138,9 @@ a:hover { cursor: url('./pics/uistuff/cursor/smileygreen3.png'), pointer; }
 }
 .contact-right form{
   width:100%;
+  display:flex;
+  flex-direction: column;
+  gap: 5px;
 }
 form input, form textarea{
   width:100%;
