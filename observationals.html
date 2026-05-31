@@ -13,20 +13,22 @@
   const nextBtn    = document.getElementById('nextBtn');
   const dotsWrap   = document.getElementById('carouselDots');
   const slides     = Array.from(track.children);
-
+ 
+  /* How many slides are visible at once — reads from CSS breakpoints */
   function getVisible() {
     const w = window.innerWidth;
     if (w <= 480) return 1;
     if (w <= 768) return 2;
     return 3;
   }
-
+ 
   let current = 0;
-
+ 
   function totalSteps() {
     return Math.ceil(slides.length / getVisible());
   }
-
+ 
+  /* Build / rebuild dot indicators */
   function buildDots() {
     dotsWrap.innerHTML = '';
     for (let i = 0; i < totalSteps(); i++) {
@@ -37,30 +39,32 @@
       dotsWrap.appendChild(d);
     }
   }
-
+ 
   function updateDots() {
     Array.from(dotsWrap.children).forEach((d, i) => {
       d.classList.toggle('active', i === current);
     });
   }
-
+ 
   function goTo(index) {
     const steps  = totalSteps();
     current = Math.max(0, Math.min(index, steps - 1));
-
+ 
+    /* Slide width = one slide + gap */
     const slideEl   = slides[0];
-    const gap       = 12; 
+    const gap       = 12; // matches CSS gap value in px
     const slideW    = slideEl.offsetWidth + gap;
     const visible   = getVisible();
     const offset    = current * visible * slideW;
-
+ 
     track.style.transform = `translateX(-${offset}px)`;
     updateDots();
   }
-
+ 
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
-
+ 
+  /* Rebuild on resize so widths recalculate */
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
@@ -70,17 +74,54 @@
       goTo(0);
     }, 150);
   });
-
+ 
+  /* Touch / swipe support */
   let touchStartX = 0;
   track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
   track.addEventListener('touchend', e => {
     const diff = touchStartX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) diff > 0 ? goTo(current + 1) : goTo(current - 1);
   });
-
+ 
+  /* Init */
   buildDots();
+ 
+  /* Lightbox */
+  const overlay    = document.getElementById('lightboxOverlay');
+  const lightboxImg = document.getElementById('lightboxImg');
+ 
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    overlay.classList.add('active');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => overlay.classList.add('visible'));
+    });
+    document.body.style.overflow = 'hidden';
+  }
+ 
+  function closeLightbox() {
+    overlay.classList.remove('visible');
+    overlay.addEventListener('transitionend', () => {
+      overlay.classList.remove('active');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    }, { once: true });
+  }
+ 
+  track.addEventListener('click', e => {
+    const img = e.target.closest('.carousel-slide img');
+    if (img) openLightbox(img.src, img.alt);
+  });
+ 
+  overlay.addEventListener('click', closeLightbox);
+ 
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
 })();
 </script>
+
 
 <body>
 <div id="header">
@@ -129,6 +170,9 @@
   </div>
 
   <div class="carousel-dots" id="carouselDots"></div>
+</div>
+<div class="lightbox-overlay" id="lightboxOverlay">
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
 </div>
 
 
