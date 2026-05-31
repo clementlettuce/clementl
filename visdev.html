@@ -6,6 +6,82 @@
   <title>Clement Lee</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<script>
+(function () {
+  const track      = document.getElementById('carouselTrack');
+  const prevBtn    = document.getElementById('prevBtn');
+  const nextBtn    = document.getElementById('nextBtn');
+  const dotsWrap   = document.getElementById('carouselDots');
+  const slides     = Array.from(track.children);
+
+  function getVisible() {
+    const w = window.innerWidth;
+    if (w <= 480) return 1;
+    if (w <= 768) return 2;
+    return 3;
+  }
+
+  let current = 0;
+
+  function totalSteps() {
+    return Math.ceil(slides.length / getVisible());
+  }
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    for (let i = 0; i < totalSteps(); i++) {
+      const d = document.createElement('button');
+      d.className = 'carousel-dot' + (i === current ? ' active' : '');
+      d.setAttribute('aria-label', 'Go to slide group ' + (i + 1));
+      d.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  function updateDots() {
+    Array.from(dotsWrap.children).forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function goTo(index) {
+    const steps  = totalSteps();
+    current = Math.max(0, Math.min(index, steps - 1));
+
+    const slideEl   = slides[0];
+    const gap       = 12; 
+    const slideW    = slideEl.offsetWidth + gap;
+    const visible   = getVisible();
+    const offset    = current * visible * slideW;
+
+    track.style.transform = `translateX(-${offset}px)`;
+    updateDots();
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      current = 0;
+      buildDots();
+      goTo(0);
+    }, 150);
+  });
+
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) diff > 0 ? goTo(current + 1) : goTo(current - 1);
+  });
+
+  buildDots();
+})();
+</script>
+
 <body>
 <div id="header">
     <div class="navcontainer">
@@ -25,8 +101,37 @@
       </nav>
     </div>
 </div>
-<div class="container"> 
-  <p> nothin for now </p>
+<div class="carousel-section">
+  <div class="carousel-wrapper">
+
+    <button class="carousel-btn" id="prevBtn" aria-label="Previous">
+      <img src="pics/uistuff/arrow-left.png" alt="Previous">
+    </button>
+
+    <div class="carousel-track-container">
+      <div class="carousel-track" id="carouselTrack">
+
+        <div class="carousel-slide">
+          <img src="pics/work/holden1.png" alt="Image 1">
+          
+        </div>
+        <div class="carousel-slide">
+          <img src="pics/work/holden2.png" alt="Image 2">
+        </div>
+        <div class="carousel-slide">
+          <img src="pics/work/holden3.png" alt="Image 3">
+        </div>
+       
+      </div>
+    </div>
+
+    <button class="carousel-btn" id="nextBtn" aria-label="Next">
+      <img src="pics/uistuff/arrow-right.png" alt="Next">
+    </button>
+
+  </div>
+
+  <div class="carousel-dots" id="carouselDots"></div>
 </div>
 
 
