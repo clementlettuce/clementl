@@ -6,6 +6,63 @@
   <title>Clement Lee</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
+
+<body>
+<div id="header">
+    <div class="navcontainer">
+      <nav>
+        <ul>
+<a href="index.html">
+          <li><img src="pics/logo.gif" class="logo"></li>
+</a>
+          <li><a href="films.html">▸Films ☺</a></li>
+          <li><a href="visdev.html">▸Visdev ⍟</a></li>
+          <li><a href="compositing.html">▸Compositing ☜ </a></li>
+<li><a href="threedee.html">▸3d work ★</a></li>
+          <li><a href="observationals.html">▸Observationals ☺ </a></li>
+          <li><a href="bonus.html">▸Special features ⍟ </a></li>
+          <li><a href="about.html">▸About ☜</a></li>
+        </ul>
+      </nav>
+    </div>
+</div>
+<div class="carousel-section">
+  <div class="carousel-wrapper">
+
+    <button class="carousel-btn" id="prevBtn" aria-label="Previous">
+      <img src="pics/uistuff/arrow-left.png" alt="Previous">
+    </button>
+
+    <div class="carousel-track-container">
+      <div class="carousel-track" id="carouselTrack">
+
+        <div class="carousel-slide">
+          <img src="pics/work/holden1.png" alt="Image 1">
+          
+        </div>
+        <div class="carousel-slide">
+          <img src="pics/work/holden2.png" alt="Image 2">
+        </div>
+        <div class="carousel-slide">
+          <img src="pics/work/holden3.png" alt="Image 3">
+        </div>
+       
+      </div>
+    </div>
+
+    <button class="carousel-btn" id="nextBtn" aria-label="Next">
+      <img src="pics/uistuff/arrow-right.png" alt="Next">
+    </button>
+
+  </div>
+
+  <div class="carousel-dots" id="carouselDots"></div>
+  <div class="lightbox-overlay" id="lightboxOverlay">
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+</div>
+</div>
+
 <script>
 (function () {
   const track      = document.getElementById('carouselTrack');
@@ -121,61 +178,7 @@
   });
 })();
 </script>
-
-<body>
-<div id="header">
-    <div class="navcontainer">
-      <nav>
-        <ul>
-<a href="index.html">
-          <li><img src="pics/logo.gif" class="logo"></li>
-</a>
-          <li><a href="films.html">▸Films ☺</a></li>
-          <li><a href="visdev.html">▸Visdev ⍟</a></li>
-          <li><a href="compositing.html">▸Compositing ☜ </a></li>
-<li><a href="threedee.html">▸3d work ★</a></li>
-          <li><a href="observationals.html">▸Observationals ☺ </a></li>
-          <li><a href="bonus.html">▸Special features ⍟ </a></li>
-          <li><a href="about.html">▸About ☜</a></li>
-        </ul>
-      </nav>
-    </div>
-</div>
-<div class="carousel-section">
-  <div class="carousel-wrapper">
-
-    <button class="carousel-btn" id="prevBtn" aria-label="Previous">
-      <img src="pics/uistuff/arrow-left.png" alt="Previous">
-    </button>
-
-    <div class="carousel-track-container">
-      <div class="carousel-track" id="carouselTrack">
-
-        <div class="carousel-slide">
-          <img src="pics/work/holden1.png" alt="Image 1">
-          
-        </div>
-        <div class="carousel-slide">
-          <img src="pics/work/holden2.png" alt="Image 2">
-        </div>
-        <div class="carousel-slide">
-          <img src="pics/work/holden3.png" alt="Image 3">
-        </div>
-       
-      </div>
-    </div>
-
-    <button class="carousel-btn" id="nextBtn" aria-label="Next">
-      <img src="pics/uistuff/arrow-right.png" alt="Next">
-    </button>
-
-  </div>
-
-  <div class="carousel-dots" id="carouselDots"></div>
-</div>
-<div class="lightbox-overlay" id="lightboxOverlay">
-  <img class="lightbox-img" id="lightboxImg" src="" alt="">
-</div>
+</body>
 
 
 
