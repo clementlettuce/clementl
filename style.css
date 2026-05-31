@@ -225,15 +225,16 @@ text-align: center;
 .carousel-section {
   margin: 0 10px;
 }
-
+ 
 .carousel-wrapper {
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
   gap: 0;
+  align-items: center;
 }
-
+ 
 .carousel-btn {
   flex-shrink: 0;
   background: none;
@@ -246,27 +247,27 @@ text-align: center;
   align-items: center;
   justify-content: center;
 }
-
+ 
 .carousel-btn:hover {
   transform: scale(1.1);
   opacity: 0.85;
 }
-
+ 
 .carousel-btn:active {
   transform: scale(0.95);
 }
-
+ 
 .carousel-btn img {
   width: 36px;
   height: auto;
   display: block;
 }
-
+ 
 .carousel-track-container {
   overflow: hidden;
   flex: 1;
 }
-
+ 
 .carousel-track {
   display: flex;
   align-items: center;
@@ -274,15 +275,15 @@ text-align: center;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
-
+ 
 .carousel-slide {
   flex-shrink: 0;
-
   width: calc((100% - 12px * 2) / 3);
   position: relative;
   overflow: hidden;
+  border-radius: 0;
 }
-
+ 
 .carousel-slide img {
   width: 100%;
   height: auto;
@@ -290,11 +291,11 @@ text-align: center;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
-
+ 
 .carousel-slide:hover img {
   transform: scale(1.03);
 }
-
+ 
 .carousel-caption {
   font-family: 'Meiryo', sans-serif;
   font-size: 13px;
@@ -303,14 +304,14 @@ text-align: center;
   padding: 6px 0 0 0;
   opacity: 0.75;
 }
-
+ 
 .carousel-dots {
   display: flex;
   justify-content: center;
   gap: 8px;
   margin-top: 14px;
 }
-
+ 
 .carousel-dot {
   width: 7px;
   height: 7px;
@@ -321,18 +322,57 @@ text-align: center;
   padding: 0;
   transition: background 0.2s, transform 0.2s;
 }
-
+ 
 .carousel-dot.active {
   background: #FFFAE0;
   transform: scale(1.3);
 }
-
+ 
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 9000;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+ 
+.lightbox-overlay.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.lightbox-overlay.visible {
+  opacity: 1;
+}
+ 
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+  transform: scale(0.92);
+  transition: transform 0.25s ease;
+}
+ 
+.lightbox-overlay.visible .lightbox-img {
+  transform: scale(1);
+}
+ 
+.carousel-slide img {
+  cursor: zoom-in;
+}
+ 
 @media (max-width: 768px) {
   .carousel-slide {
     width: calc((100% - 12px) / 2);
   }
 }
-
+ 
 @media (max-width: 480px) {
   .carousel-slide {
     width: 100%;
