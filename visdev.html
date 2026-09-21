@@ -71,7 +71,6 @@
   const dotsWrap   = document.getElementById('carouselDots');
   const slides     = Array.from(track.children);
  
-  /* How many slides are visible at once — reads from CSS breakpoints */
   function getVisible() {
     const w = window.innerWidth;
     if (w <= 480) return 1;
@@ -85,7 +84,6 @@
     return Math.ceil(slides.length / getVisible());
   }
  
-  /* Build / rebuild dot indicators */
   function buildDots() {
     dotsWrap.innerHTML = '';
     for (let i = 0; i < totalSteps(); i++) {
@@ -107,9 +105,8 @@
     const steps  = totalSteps();
     current = Math.max(0, Math.min(index, steps - 1));
  
-    /* Slide width = one slide + gap */
     const slideEl   = slides[0];
-    const gap       = 12; // matches CSS gap value in px
+    const gap       = 12; 
     const slideW    = slideEl.offsetWidth + gap;
     const visible   = getVisible();
     const offset    = current * visible * slideW;
@@ -121,7 +118,6 @@
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
  
-  /* Rebuild on resize so widths recalculate */
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
@@ -132,7 +128,6 @@
     }, 150);
   });
  
-  /* Touch / swipe support */
   let touchStartX = 0;
   track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
   track.addEventListener('touchend', e => {
@@ -140,10 +135,8 @@
     if (Math.abs(diff) > 40) diff > 0 ? goTo(current + 1) : goTo(current - 1);
   });
  
-  /* Init */
   buildDots();
  
-  /* Lightbox */
   const overlay    = document.getElementById('lightboxOverlay');
   const lightboxImg = document.getElementById('lightboxImg');
  
